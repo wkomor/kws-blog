@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+    <div class="main-post">
+        <div class="panel panel-default">
+            <div class="panel-body">
+    <form action="" method="post" name="add_post">
+        <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
+   <p>Логин</p>
+        <div class="username">{{form.username}}
+    </div>
+      <p>Пароль</p>
+    <div class="password">{{form.password | safe }}
+</div>
+        <hr>
+    <button type="submit" class="btn btn-primary" value="Add">Вход</button>
+</form>
+</div></div></div></div>
+{% endblock %}

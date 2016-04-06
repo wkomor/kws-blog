@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+    <div class="main-post">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                    <h2>{{ post.title }} </h2>
+                    <p>{{ post.body|safe }}</p>
+            </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">{% if post.date %}Опубликовано: {{ post.date.strftime('%d.%m.%Y') }}{% else %}{% endif %}</div>
+        </div>
+
+        </div>
+    </div>
+    <div id="disqus_thread"></div>
+<script>
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//blogsite1.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+{% endblock %}
