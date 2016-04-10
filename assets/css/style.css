@@ -67,3 +67,17 @@ ol {
 .main-post{
     padding-top: 36px;
 }
+
+.post_body {
+    font-size: 18px;
+}
+
+#face{
+    background: url(images/face.jpg) no-repeat;
+
+}
+
+.hire_me li a{
+        margin-bottom: 5px;
+        width: 250px;
+}

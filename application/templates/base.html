@@ -10,11 +10,20 @@
 {% block css %}
     {% endblock %}
 </head>
+
 <body>
-{% include 'navbar.html' %}
-<div id="content" class="container">
-    {% block content %}
-    {% endblock %}
+<div class="parallax">
+
+  <div class="parallax__layer parallax__layer--base">
+    {% include 'navbar.html' %}
+    <div id="content" class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+  </div>
+  <div class="parallax__layer parallax__layer--back">
+  </div>
 </div>
+
 </body>
 </html>

@@ -2,9 +2,10 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-body">
-                <h2><a href="/post/{{ post.key().id() }}">{{ post.title }}</a> </h2>
+                <h2><a href="/post/{{ post.key().id() }}">{{ post.title }}</a></h2>
                 <div id="post_body">{{ post.body|safe}}</div>
             </div>
         </div>
     </div>
 {% endfor %}
+

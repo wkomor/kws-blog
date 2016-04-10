@@ -6,8 +6,24 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     contacts
+                    <form action="" method="post" name="add_post">
+                <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
+                {{ form.your_name }}
+                <p>
+                    Заголовок поста<br>
+                    {{form.your_email}}<br>
+                </p>
+                {{form.message  }}
+                <br>
+                <button type="submit" class="btn btn-primary" value="Add">Добавить пост</button>
+            </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+
+
+    </script>
 {% endblock %}

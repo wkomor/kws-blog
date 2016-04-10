@@ -1,14 +1,15 @@
 import hashlib
-from application import app
-# from google import appengine
-from flask import render_template, request, url_for, redirect, \
-                    session, abort, flash
-from application.models import BlogPost, User
-from application.forms import AddPostForm, LoginForm
 from datetime import datetime
+from application import app
+from application.emails import send_email
+from application.forms import AddPostForm, LoginForm, ContactForm
+from application.models import BlogPost, User
+from flask import render_template, request, url_for, redirect, \
+                    session, abort, flash, jsonify
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from wtforms import Form
 from wtforms.ext.appengine.db import model_form
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -133,9 +134,15 @@ def delete(id):
 def about():
     return render_template('about.html')
 
-@app.route("/contacts")
+@app.route("/contact")
 def contacts():
-    return render_template('contacts.html')
+    form = ContactForm(request.form)
+    if request.method == 'POST' and form.validate():
+        send_email('Message from {}'.format(form.message.data),
+                   form.your_email, form.message.data)
+        res = {'data':"OK"}
+        return jsonify(res)
+    return render_template('contacts.html', form=form)
 
 @app.before_request
 def csrf_protect():

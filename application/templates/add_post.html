@@ -21,12 +21,12 @@
 {% block content %}
     <div class="row">
         <div class="col-lg-12">
-            <h1>Add post</h1>
+            <h1>Добавить пост</h1>
             <form action="" method="post" name="add_post">
                 <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
                 {{ form.date }}
                 <p>
-                    Please enter your post title:<br>
+                    Заголовок поста<br>
                     {{form.title}}<br>
                 </p>
                 {{form.body | safe }}

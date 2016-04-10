@@ -5,9 +5,171 @@
         <div class="main-post">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="http://www.upwork.com/o/profiles/users/_~011cef03a136be8a23/" target="_blank" class="btn btn-success">Hire me on Upwork</a>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div id="face" style="background-size: 350px; width: 350px; height: 300px; display: block"></div>
+                            <ul class="hire_me">
+                                <li>
+                                    <a href="http://www.upwork.com/o/profiles/users/_~011cef03a136be8a23/" target="_blank" class="btn btn-success pull-left">Hire me on Upwork</a>
+                                </li>
+                                <li>
+                                    <a href="http://hh.ru/resume/37276eaeff02a2181d0039ed1f763852305a55" target="_blank" class="btn btn-success pull-left">Hire me on HeadHunter</a>
+                                </li>
+                                <li>
+                                    <a href="#contact" data-toggle="modal" class="btn btn-primary pull-left">Contact me</a>
+                                </li>
+                            </ul>
+                            </div>
+                        <div class="col-lg-8">
+                           <h2>Витольд Станиславович Коморовский</h2>
+
+                            <table class="table table-condensed table-hover">
+                                <caption><h3>Опыт работы</h3></caption>
+                                <tr>
+                                    <td>Октябрь 2015 — по настоящее время</td>
+                                    <td>ООО Очень Интересно / <a href="http://www.saritasa.com" target="_blank">Saritasa LLC </a>
+                                        <br>
+                                        <b>Программист Python</b>
+                                </tr>
+                                <tr>
+                                    <td>Май 2008 — по настоящее время</td>
+                                    <td><a href="http://www.sibgtu.ru/index.php?task=person&id=komorovsky_vs" target="_blank">Сибирский государственный технологический университет</a>
+                                        <br>
+                                        <b>Доцент</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Февраль 2015 — январь 2016</td>
+                                    <td><a href="http://soft-garage.ru/" target="_blank">ООО Софт-гараж</a><br>
+                                    <b>Основатель, технический менеджер</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Сентябрь 2011 — октябрь 2015</td>
+                                    <td><a href="http://www.sibpsa.ru/ntc/about/" target="_blank">Центр НИОКР Сибирской пожарно-спасательной академии ГПС МЧС России</a>
+                                        <br>
+                                    <b>Старший научный сотрудник</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Ноябрь 2003 — май 2008</td>
+                                    <td><a href="http://www.icct.ru/" target="_blank">Институт химии и химической технологии СО РАН</a>
+                                        <br>
+                                    <b>Старший лаборант</b></td>
+                                </tr></table>
+                            <table class="table table-hover">
+                                <caption><h3>Образование</h3></caption>
+                                <thead>
+                                <tr>
+                                    <th colspan="2"><b><a href="http://research.sfu-kras.ru/node/5008" target="_blank">Кандидат наук</a></b></th>
+                                </tr>
+                                <tr>
+                                    <td>2011</td>
+                                    <td>
+                                        Сибирский федеральный университет, Красноярск
+                                        <br>
+                                        Институт космических и информационных технологий
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2006</td>
+                                    <td>
+                                        Сибирский государственный технологический университет, Красноярск
+                                        <br>
+                                        Факультет переработки природных соединений
+                                    </td>
+                                </tr>
+                                </thead>
+                            </table>
+                            <table class="table">
+                                <caption><h3>Знание языков</h3></caption>
+                                <tr>
+                                    <td><h4>Русский</h4></td>
+                                    <td>Родной</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Английский</h4></td>
+                                    <td>Письменный, разговорный</td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Польский</h4></td>
+                                    <td> Разговорный</td>
+                                </tr>
+                            </table>
+                            <h5>Дата рождения: 08.06.1984, сейчас мне <b id="age"></b></h5>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+     <div id="contact" class="modal fade" tabindex="-1", role="dialog", aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal", aria-hidden="true">×</button>
+            <h3 class="modal-title">Контакты:</h3>
+          </div>
+          <form id="contact-form" class="modal-body" role="form">
+              <input name=_csrf_token type=hidden value="{{ csrf_token() }}">
+            <div class="form-group">
+              <input class="form-control input-lg" type="text", placeholder="Ваше имя", required, name="your_name">
+            </div>
+            <div class="form-group">
+              <input class="form-control input-lg" type="email", placeholder="Ваш email", required, name="your_mail">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control input-lg" rows="5", placeholder="Ваше сообщение", required, name="message"></textarea>
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button class="btn btn-default btn-lg" type="submit", title="Отправить Email", form="contact-form">Отправить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            var date_now = new Date();
+            var birthday = new Date(1984, 6, 8);
+            var age = date_now.getYear() - birthday.getYear();
+            age =  date_now.setFullYear(1984) < birthday.setFullYear(1984) ? age - 1 : age;
+            $("#age").html(age);
+        });
+
+        $('#contact-form').on('submit', function(e) {
+        e.preventDefault(); // предотвратим отправку формы - действие по умолчанию
+        var that = $(e.target); // получаем ссылку на источник события - форму #contact-form
+        $.ajax({ // отправляем данные
+          // URL развернутого скрипта Google Apps Script
+            //'https://script.google.com/macros/s/AKfycbw-FbVJJ7t5U3t0_Fu4agdFnzRLivG30Z-8Oi4WQOXmfXW6eT4/exec'
+          url: 'https://script.google.com/macros/s/AKfycbw-FbVJJ7t5U3t0_Fu4agdFnzRLivG30Z-8Oi4WQOXmfXW6eT4/exec',
+          data: $(this).serialize(), // собираем запрос
+          jsonp: 'cb', // имя параметра запроса
+          jsonpCallback: 'bingo', // имя функции
+          dataType:'jsonp', // тип данных
+          success: function bingo(data){
+            console.log(data); // проверим данные, полученные с бэкэнда
+            if (data == 'Error') {
+              alertForm({form: that, type: 'alert-danger', msg: 'Не удалось отправить сообщение.'});
+              return;
+            }
+            alertForm({form: that, type: 'alert-success', msg: 'Ваше сообщение отправлено.'});
+            that.find('textarea').val('');
+          },
+          error: function(){
+            alertForm({form: that, type: 'alert-danger', msg: 'Не удалось отправить сообщение.'});
+          }
+        });
+      });
+      // функция вывода сообщений в модальную форму
+      function alertForm(alert) {
+        var div = $('<div class="alert ' + alert.type + '" style="display: none;">' + alert.msg + '</div>');
+        alert.form.prepend(div);
+        div.slideDown(400).delay(3000).slideUp(400, function() {
+          alert.form.closest('.modal').modal('hide');
+          div.remove();
+        });
+      }
+    </script>
 {% endblock %}
